@@ -371,3 +371,151 @@
   outline: 2px solid #667eea;
   outline-offset: 2px;
 }
+/* Additional iPhone SE specific improvements */
+@media (max-width: 375px) {
+  /* Improve form spacing */
+  .form {
+    gap: 1rem;
+  }
+
+  .form-group {
+    gap: 0.3rem;
+  }
+
+  /* Better modal handling */
+  .modal-overlay {
+    padding: 0.25rem;
+  }
+
+  /* Improve card readability */
+  .card-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  /* Better button layout in cards */
+  .card-actions {
+    flex-wrap: wrap;
+  }
+
+  /* Improve student card layout */
+  .student-info {
+    flex: 1;
+  }
+
+  .student-actions {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .student-actions .btn {
+    width: 100%;
+  }
+
+  /* Better spacing for empty states */
+  .empty-state .btn {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  /* Improve alert spacing */
+  .alert {
+    border-radius: 8px;
+  }
+
+  /* Better meta item wrapping */
+  .card-meta {
+    gap: 0.3rem;
+  }
+
+  .meta-item {
+    flex: 1;
+    min-width: fit-content;
+    text-align: center;
+    border-radius: 15px;
+  }
+
+  /* Improve form row spacing on very small screens */
+  .form-row {
+    gap: 0.75rem;
+  }
+
+  /* Better select dropdown styling */
+  select.form-input {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  /* Improve scrollable areas */
+  .student-list::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .nav-container::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  .nav-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .nav-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+  }
+
+  /* Improve focus states for small screens */
+  .btn:focus-visible,
+  .form-input:focus-visible,
+  .nav-item:focus-visible {
+    outline: 2px solid #667eea;
+    outline-offset: 1px;
+  }
+
+  /* Ensure proper spacing between sections */
+  .section + .section {
+    margin-top: 1rem;
+  }
+}
+
+/* Improve touch interactions */
+@media (max-width: 480px) and (pointer: coarse) {
+  .btn,
+  .nav-item {
+    min-height: 48px; /* Larger touch targets */
+  }
+
+  .form-input,
+  select.form-input {
+    min-height: 48px;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  /* Improve hover states for touch devices */
+  .card:hover {
+    transform: none;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+
+  /* Add active states instead */
+  .card:active {
+    transform: scale(0.98);
+  }
+
+  .btn:active {
+    transform: scale(0.95);
+  }
+
+  .nav-item:active {
+    transform: scale(0.95);
+  }
+}
