@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Layout from './components/Layout/Layout';
+import CourseTypeList from './components/CourseTypes/CourseTypeList';
+import CourseList from './components/Courses/CourseList';
+import CourseOfferingList from './components/CourseOfferings/CourseOfferingList';
+import StudentRegistration from './components/Students/StudentRegistration';
+import './styles/main.css';
+import './styles/components.css';
+import './styles/responsive.css';
 
 function App() {
+  const [activeTab, setActiveTab] = useState('course-types');
+
+  const renderActiveComponent = () => {
+    switch (activeTab) {
+      case 'course-types':
+        return <CourseTypeList />;
+      case 'courses':
+        return <CourseList />;
+      case 'course-offerings':
+        return <CourseOfferingList />;
+      case 'student-registration':
+        return <StudentRegistration />;
+      default:
+        return <CourseTypeList />;
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
+        {renderActiveComponent()}
+      </Layout>
     </div>
   );
 }
